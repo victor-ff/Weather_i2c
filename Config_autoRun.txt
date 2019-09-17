@@ -1,0 +1,16 @@
+=== crontab ===
+
+@reboot /home/pi/Weather_i2c/execute.sh
+
+=== execute.sh ===
+
+#!/bin/bash
+
+LOGFILE="/home/pi/Weather_i2c/log.txt"
+TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+
+echo inicializado file.sh
+sleep 20s
+echo "$TIMESTAMP weather_inicializado" >> $LOGFILE
+
+python3 /home/pi/Weather_i2c/Weather_com.py
